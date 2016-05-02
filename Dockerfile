@@ -32,7 +32,5 @@ EXPOSE 2424
 #OrientDb http
 EXPOSE 2480
 
-ADD ./default-distributed-db-config.json /orientdb/config/default-distributed-db-config.json
-
 # Default command start the server
 CMD ["dserver.sh"]
