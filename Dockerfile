@@ -22,7 +22,7 @@ RUN mkdir /orientdb && \
 
 ENV PATH /orientdb/bin:$PATH
 
-VOLUME ["/orientdb/backup", "/orientdb/databases", "/orientdb/config"]
+VOLUME ["/orientdb/backup"]
 
 WORKDIR /orientdb
 
