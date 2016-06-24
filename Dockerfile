@@ -1,14 +1,16 @@
 ############################################################
 # Dockerfile to run an OrientDB (Graph) Container
 ############################################################
-
-FROM java:8-jdk
+FROM java:openjdk-8-jdk-alpine
 
 MAINTAINER OrientDB LTD (info@orientdb.com)
 
 ENV ORIENTDB_VERSION 2.1.19
-ENV ORIENTDB_DOWNLOAD_MD5 a1b6abe1f0c45312be0a1a0831525386
-ENV ORIENTDB_DOWNLOAD_SHA1 ac265bb16a55a62066b5403fdb6f3cd94333db8df
+ENV ORIENTDB_DOWNLOAD_MD5 11942093675c32b9341658bd56f191f0
+ENV ORIENTDB_DOWNLOAD_SHA1 289b5d0950254e90531e65a3f4ef530bb4193f32
+
+RUN apk add --update tar \
+    && rm -rf /var/cache/apk/*
 
 #download distribution tar, untar and delete databases
 RUN mkdir /orientdb && \
