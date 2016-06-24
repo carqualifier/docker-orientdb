@@ -8,7 +8,7 @@ MAINTAINER OrientDB LTD (info@orientdb.com)
 
 ENV ORIENTDB_VERSION 2.1.19
 ENV ORIENTDB_DOWNLOAD_MD5 a1b6abe1f0c45312be0a1a0831525386
-ENV ORIENTDB_DOWNLOAD_SHA1 ac265bb16a55a62066b5403fd6f3cd94333db8df
+ENV ORIENTDB_DOWNLOAD_SHA1 ac265bb16a55a62066b5403fdb6f3cd94333db8df
 
 #download distribution tar, untar and delete databases
 RUN mkdir /orientdb && \
@@ -18,7 +18,6 @@ RUN mkdir /orientdb && \
   && tar -xvzf orientdb-community-$ORIENTDB_VERSION.tar.gz -C /orientdb --strip-components=1\
   && rm orientdb-community-$ORIENTDB_VERSION.tar.gz \
   && rm -rf /orientdb/databases/*
-
 
 ENV PATH /orientdb/bin:$PATH
 
