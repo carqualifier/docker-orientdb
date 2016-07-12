@@ -5,10 +5,6 @@ FROM java:openjdk-8-jdk-alpine
 
 MAINTAINER OrientDB LTD (info@orientdb.com)
 
-FROM java:8-jdk
-
-MAINTAINER OrientDB LTD (info@orientdb.com)
-
 ENV ORIENTDB_VERSION 2.2.4
 ENV ORIENTDB_DOWNLOAD_MD5 cfaf1e8e45bef79bdad4d9f6be3b9475
 ENV ORIENTDB_DOWNLOAD_SHA1 b1de3f37187b7e2ef5309f171457ec7e35f25c00
@@ -30,8 +26,6 @@ WORKDIR /orientdb
 
 #OrientDb binary
 EXPOSE 2424
-
-EXPOSE 2434
 
 #OrientDb http
 EXPOSE 2480
