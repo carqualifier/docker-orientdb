@@ -31,6 +31,8 @@ WORKDIR /orientdb
 #OrientDb binary
 EXPOSE 2424
 
+EXPOSE 2434
+
 #OrientDb http
 EXPOSE 2480
 
