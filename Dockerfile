@@ -41,4 +41,4 @@ EXPOSE 2424
 EXPOSE 2480
 
 # Default command start the server
-CMD ["dserver.sh"]
+CMD ["server.sh", "-Ddistributed", "true"]
