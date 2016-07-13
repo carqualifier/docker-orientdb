@@ -1,0 +1,13 @@
+set daemon 60
+set logfile /dev/stdout
+set idfile /var/lib/monit/id
+set statefile /var/lib/monit/state
+set httpd port 2812
+  allow localhost
+
+check file orientdb_init_status with path /orientdb/status/ready.status
+  group root
+  start program = "/orientdb/bin/dserver.sh"
+  stop program = "/orientdb/bin/shutdown.sh"
+  restart program = "/orientdb/bin/shutdown.sh && /orientdb/bin/dserver.sh"
+  if changed timestamp then restarts
