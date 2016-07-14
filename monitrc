@@ -7,6 +7,6 @@ set httpd port 2812
 
 check file orientdb_init_status with path /orientdb/status/ready.status
   group root
-  start program = "/orientdb/orient_service.sh start"
-  stop program = "/orientdb/orient_service.sh stop"
+  start = "/orientdb/orient_service.sh start"
+  stop = "/orientdb/orient_service.sh stop"
   if changed timestamp then restart

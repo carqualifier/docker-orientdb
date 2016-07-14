@@ -6,8 +6,7 @@ case $1 in
      echo $! > /var/run/start_orient.pid ;
      ;;
    stop)
-     /orientdb/bin/shutdown.sh
-     rm /var/run/start_orient.pid
+     /orientdb/bin/shutdown.sh && rm /var/run/start_orient.pid
    *)
      echo "usage: orient_service.sh {start|stop}" ;;
 esac
