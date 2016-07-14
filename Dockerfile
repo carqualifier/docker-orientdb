@@ -11,6 +11,8 @@ RUN apt-get update -y \
   && chmod 0700 /etc/monit/monitrc \
   && apt-get purge -y --auto-remove
 
+VOLUME ["/orientdb/status"]  
+
 COPY monitrc /etc/monit/
 RUN chmod 0700 /etc/monit/monitrc \
     && mkdir -p /orientdb/status \
