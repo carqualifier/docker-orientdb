@@ -10,3 +10,4 @@ check file orientdb_init_status with path /data/status/orient.ready
   start = "/orientdb/orient_service.sh start"
   stop = "/orientdb/orient_service.sh stop"
   if changed timestamp then restart
+  if does not exist then alert
