@@ -5,7 +5,7 @@ set statefile /var/lib/monit/state
 set httpd port 2812
   allow localhost
 
-check file orientdb_init_status with path /orientdb/process/status/ready
+check file orientdb_init_status with path /orientdb/status/ready
   group root
   start = "/orientdb/orient_service.sh start"
   stop = "/orientdb/orient_service.sh stop"
