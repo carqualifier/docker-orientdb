@@ -22,4 +22,4 @@ RUN chmod 0700 /etc/monit/monitrc \
 VOLUME ["/data/status"]
 
 # Default command start the server
-CMD ["run.sh"]
+CMD ["/orientdb/run.sh"]
