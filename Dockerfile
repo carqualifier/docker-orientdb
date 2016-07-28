@@ -12,14 +12,14 @@ RUN apt-get update -y \
   && apt-get purge -y --auto-remove
 
 ADD orient_service.sh /orientdb/orient_service.sh
-ADD ready /data/status/orient.ready
+ADD run.sh /orientdb/run.sh
 
 COPY monitrc /etc/monit/
 RUN chmod 0700 /etc/monit/monitrc \
     && chmod +x /orientdb/orient_service.sh \
-    && chmod 0770 /data/status/orient.ready
+    && chmod +x /orientdb/run.sh
 
 VOLUME ["/data/status"]
 
 # Default command start the server
-CMD ["/usr/bin/monit", "-I"]
+CMD ["run.sh"]
