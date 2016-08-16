@@ -5,6 +5,9 @@ FROM orientdb:2.2.7
 
 EXPOSE 2434
 
+RUN apk add --update curl && \
+    rm -rf /var/cache/apk/*
+
 # Compile and install monit and confd
 ENV MONIT_VERSION=5.19.0 \
     MONIT_HOME=/opt/monit \
