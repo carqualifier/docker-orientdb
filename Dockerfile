@@ -1,7 +1,7 @@
 ############################################################
 # Dockerfile to run an OrientDB (Graph) Container
 ############################################################
-FROM orientdb:2.2.7
+FROM orientdb:2.1.21
 
 EXPOSE 2434
 
