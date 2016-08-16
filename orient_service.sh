@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/ash
 
 case $1 in
   start)

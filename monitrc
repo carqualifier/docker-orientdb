@@ -1,7 +1,7 @@
 set daemon 60
 set logfile /dev/stdout
-set idfile /var/lib/monit/id
-set statefile /var/lib/monit/state
+set idfile /opt/monit/id
+set statefile /opt/monit/state
 set httpd port 2812
   allow localhost
 
