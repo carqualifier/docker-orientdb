@@ -29,8 +29,8 @@ RUN apk add --update gcc musl-dev make openssl-dev && \
 ADD orient_service.sh /orientdb/orient_service.sh
 ADD run.sh /orientdb/run.sh
 
-COPY monitrc /etc/monit/
-RUN chmod 0700 /etc/monit/monitrc \
+COPY monitrc /etc/monitrc
+RUN chmod 0700 /etc/monitrc \
     && chmod +x /orientdb/orient_service.sh \
     && chmod +x /orientdb/run.sh
 
