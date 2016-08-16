@@ -1,15 +1,27 @@
 ############################################################
 # Dockerfile to run an OrientDB (Graph) Container
 ############################################################
-FROM orientdb:2.2.6
+FROM orientdb:2.2.7
 
 EXPOSE 2434
 
-RUN apt-get update -y \
-  && apt-get install monit -y \
-  && mkdir -p /var/monit/ \
-  && chmod 0700 /etc/monit/monitrc \
-  && apt-get purge -y --auto-remove
+# Compile and install monit and confd
+ENV MONIT_VERSION=5.19.0 \
+    MONIT_HOME=/opt/monit \
+    MONIT_URL=https://mmonit.com/monit/dist \
+    SERVICE_VOLUME=/opt/tools \
+    PATH=$PATH:/opt/monit/bin
+
+# Compile and install monit
+RUN apk add --update gcc musl-dev make openssl-dev && \
+    mkdir -p /opt/src; cd /opt/src && \
+    curl -sS ${MONIT_URL}/monit-${MONIT_VERSION}.tar.gz | gunzip -c - | tar -xf - && \
+    cd /opt/src/monit-${MONIT_VERSION} && \
+    ./configure  --prefix=${MONIT_HOME} --without-pam && \
+    make && make install && \
+    mkdir -p ${MONIT_HOME}/etc/conf.d ${MONIT_HOME}/log && \
+    apk del gcc musl-dev make openssl-dev &&\
+    rm -rf /var/cache/apk/* /opt/src
 
 ADD orient_service.sh /orientdb/orient_service.sh
 ADD run.sh /orientdb/run.sh
